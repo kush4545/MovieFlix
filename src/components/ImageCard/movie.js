@@ -7,6 +7,8 @@ export default function Movie(props) {
     const navigate = useNavigate();
     const {movie,key,genres,genreForMovie,setGenreForMovie} = props;
 
+    console.log(window.innerWidth)
+
     useEffect(()=>{
         if(genres){
             let getGenre = genres?.filter((item)=>movie?.genre_ids?.includes(item?.id))?.map((genre)=>genre.name)
@@ -26,15 +28,24 @@ export default function Movie(props) {
                 <img src={Img_BaseUrl+movie?.poster_path} alt="" className="card-image" />
                 <div className="card-content">
                     <p className="card-title">{movie?.title}</p>
-                    <p className="card-description" >
-                    {window.innerWidth >= 480 ? movie?.overview.split(' ').slice(0, 20).join(' ') : movie?.overview.split(' ').slice(0, 10).join(' ')}</p>
-                    <div className="card-genre-div">
                     {
-                        genreForMovie.map((item,index)=>(
+                        window.innerWidth > 820 ? 
+                        <>
+                        <p className="card-description" >
+                            {window.innerWidth >= 480 ? movie?.overview.split(' ').slice(0, 10).join(' ') : movie?.overview.split(' ').slice(0, 10).join(' ')}</p>
+                        <div className="card-genre-div">
+                        {
+                            genreForMovie.map((item,index)=>(
                             <p key={index} className="card-genre" style={genreForMovie?.length > 4 ? {fontSize:'1rem'} : {}}>{item}</p>
                         ))
+                        }
+                        </div>
+                        <div className="ratings-div">
+                            <p>Ratings</p>
+                        </div>
+                        </> : null
                     }
-                    </div>
+                    <p className="card-genre"><span style={{fontWeight:'bold'}}>Ratings:</span>{movie?.vote_average?.toFixed(1)}</p>
                 </div>
             </div>
         </>

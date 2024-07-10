@@ -29,11 +29,14 @@ const MovieInfoCard = (props) => {
   return (
     <div className="movie-info">
     <span className="back-arrow" onClick={getToMainPage}>←</span>
-    <div className="movieDiv1">
+    {
+      window.innerWidth > 820 ? 
+      <>
+      <div className="movieDiv1">
         <img className="movie-img" src={Img_BaseUrl + movie.poster_path} alt={movie.title} />
         <h4 style={{textAlign:'center'}}>{movie.title}</h4>
-    </div>
-    <div className="movieDiv2">
+      </div>
+      <div className="movieDiv2">
         <p className="p-bold">OverView</p>
         <p className="movieOverview">{movie.overview}</p>
         <p className="p-bold">Genres</p>
@@ -42,7 +45,29 @@ const MovieInfoCard = (props) => {
                 <p key={index} className="movieOverview" style={genreForMovie?.length > 4 ? {fontSize:'1rem'} : {}}>{item}</p>
             ))
         }
-    </div>
+        <p className="p-bold">Ratings</p>
+        <p className="movieOverview">{movie?.vote_average?.toFixed(1)}</p>
+      </div>
+      </> :
+      <div className="div-wrap">
+      <div>
+        <img  src={Img_BaseUrl + movie.poster_path} alt={movie.title} />
+        <h4 style={{textAlign:'center'}}>{movie.title}</h4>
+      </div>
+      <div >
+        <p className="p-bold">OverView</p>
+        <p className="movieOverview">{movie.overview}</p>
+        <p className="p-bold">Genres</p>
+        {
+            genreForMovie.map((item,index)=>(
+                <p key={index} style={genreForMovie?.length > 4 ? {fontSize:'1rem'} : {}}>{item}</p>
+            ))
+        }
+        <p className="p-bold">Ratings</p>
+        <p className="movieOverview">{movie?.vote_average?.toFixed(1)}</p>
+      </div>
+      </div>
+    }
     </div>
   );
 };

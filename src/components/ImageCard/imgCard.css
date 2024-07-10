@@ -1,7 +1,7 @@
 .movie-card{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 50px 500px;
+  grid-template-rows: 50px auto;
   gap: 16px;
   padding-top: 16px;  
   font-family: sans-serif; 
@@ -19,7 +19,7 @@
   border-radius: 8px;
   overflow: hidden;
   text-align: center;
-  /* margin: 8px; */
+  margin: 8px;
   transition: transform 0.3s;
   cursor: pointer;
 }
@@ -50,6 +50,7 @@
   display: flex;
   justify-content: space-evenly;
   text-align: left;
+  height: 35px;
 }
 
 .card-genre{
@@ -70,83 +71,85 @@
 }
 
 
+/* Media Queries */
 @media (max-width: 1200px) {
   .movie-card {
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 50px auto;
   }
 }
 
 @media (max-width: 992px) {
   .movie-card {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 40px 650px;
-  }
-
-  .card-image{
-    height: 450px;
-  }
-
-  .card-title{
-    font-size: 1.5rem;
-  }
-
-  .card-genre{
-    font-size: 1.5rem;
+      grid-template-rows: 50px auto;
   }
 }
 
 @media (max-width: 768px) {
   .movie-card {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 40px 650px;
+      grid-template-rows: 50px auto;
+  }
+
+  .card{
+    height: 100%;
+  }
+
+  .card-content{
+    height: 20%;
   }
 
   .card-title {
-    font-size: 1.5rem;
+      font-size: 1.2em;
+      text-align: left;
   }
 
   .card-description {
       font-size: 0.9em;
   }
-
-  .card-genre {
-    font-size: 1.5rem;
-}
-
-  .card-image{
-    height: 450px;
-  }
 }
 
 @media (max-width: 576px) {
   .movie-card {
-      grid-template-columns: 1fr;
-      grid-template-rows: 40px 650px;
+    grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 50px auto;
+  }
+
+  .card{
+    height: 100%;
   }
 
   .card-content {
       padding: 8px;
+      height: 20%;
   }
 
   .card-title {
-    font-size: 1.5rem;
+      font-size: 1em;
+      text-align: left;
   }
 
   .card-description {
       font-size: 0.8em;
   }
 
-  .card-genre {
-    font-size: 1.5rem;
-}
-
   .card-image {
-      height: 450px;
+      height: 130px;
   }
 }
+
 
 .movie-year{
   font-size: 24px;
   font-weight: 500;
   padding-top: 5px;
+}
+
+.ratings-div{
+    height: 30px;
+    width: 100%;
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-evenly;
 }

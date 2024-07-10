@@ -35,3 +35,13 @@
 .back-arrow{
     cursor: pointer;
 }
+
+@media (max-width: 820px){
+    .back-arrow{
+        position: absolute;
+    }
+
+    .div-wrap{
+        padding-top: 30px;
+    }
+}

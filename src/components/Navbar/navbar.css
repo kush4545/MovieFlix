@@ -71,3 +71,10 @@
     height: 65px;
   }
 } 
+
+@media (max-width: 768px) {
+  .navbar-genre-item{
+    font-size: 14px;
+    font-family: sans-serif;
+  }
+} 
