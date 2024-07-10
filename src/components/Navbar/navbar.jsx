@@ -5,9 +5,8 @@ import axios from 'axios';
 
 const Navbar = (props) => {
 
-  const {setGenreId,setGenres,genres} = props;
+  const {setGenreId,setGenres,genres,selectedGenres,setSelectedGenres} = props;
 
-  const [selectedGenres, setSelectedGenres] = useState([]);
   const [selectBtn,setSelectBtn] = useState(false);
 
   const toggleGenre = (genre) => {

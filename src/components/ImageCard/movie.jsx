@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function Movie(props) {
 
     const navigate = useNavigate();
-    const {movie,key,genreId,genres,genreForMovie,setGenreForMovie} = props;
-
-    console.log("genreId",genreId)
+    const {movie,key,genres,genreForMovie,setGenreForMovie} = props;
 
     useEffect(()=>{
         if(genres){

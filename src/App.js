@@ -10,13 +10,14 @@ function App() {
   const [genres,setGenres] = useState([]);
   const [movie,setMovie] = useState([]);
   const [genreForMovie,setGenreForMovie] = useState([]);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   return (
     <Router>
     <div className="App">
-        <Navbar setGenres={setGenres} genres={genres} genreId={genreId} setGenreId={setGenreId}/>
+        <Navbar setGenres={setGenres} genres={genres} genreId={genreId} setGenreId={setGenreId} setSelectedGenres={setSelectedGenres} selectedGenres={selectedGenres}/>
         <Routes>
-          <Route path="/" element={<MovieCard setMovie={setMovie} movie={movie} genres={genres} setGenreForMovie={setGenreForMovie} genreForMovie={genreForMovie} genreId={genreId}/>}></Route>
+          <Route path="/" element={<MovieCard setMovie={setMovie} movie={movie} genres={genres} setGenreForMovie={setGenreForMovie} genreForMovie={genreForMovie} genreId={genreId} selectedGenres={selectedGenres}/>}></Route>
           <Route path="/movieInfo/:id" element={<MovieInfoCard movie={movie} genreForMovie={genreForMovie} setGenreForMovie={setGenreForMovie} genres={genres}/>}>
           </Route>
         </Routes>

@@ -81,17 +81,9 @@ export default function MovieCard(props) {
                 <>
                 {
                 item.isLabel ? 
-                (
-                  genreId ? (
-                    item?.title ?
-                    <div key={`year-${item.year}-${index}`} className="year-label">
-                            <h2>{item.year}</h2>
-                    </div> : null
-                  ) :
                   <div key={`year-${item.year}-${index}`} className="year-label">
                             <h2>{item.year}</h2>
-                    </div>
-                )
+                  </div>
                 : 
                 <>
                 {
